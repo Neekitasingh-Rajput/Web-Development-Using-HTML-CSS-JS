@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Card - Lab 6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="marks-page">
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Marks Card Calculator</h2>
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+
+            <form id="marksForm" onsubmit="calculateMarks(event)">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="subject1" class="form-label">English:</label>
+                        <input type="number" class="form-control" id="subject1" min="0" max="100" placeholder="Enter the marks" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="subject2" class="form-label">Mathematics:</label>
+                        <input type="number" class="form-control" id="subject2" min="0" max="100" placeholder="Enter the marks" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="subject3" class="form-label">Science:</label>
+                        <input type="number" class="form-control" id="subject3" min="0" max="100" placeholder="Enter the marks" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="subject4" class="form-label">Social Studies:</label>
+                        <input type="number" class="form-control" id="subject4" min="0" max="100" placeholder="Enter the marks" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="subject5" class="form-label">Computer Science:</label>
+                        <input type="number" class="form-control" id="subject5" min="0" max="100" placeholder="Enter the marks" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="subject6" class="form-label">Hindi:</label>
+                        <input type="number" class="form-control" id="subject6" min="0" max="100" placeholder="Enter the marks" required>
+                    </div>
+                </div>      
+                <button type="submit" class="btn btn-success w-100 mb-3">Calculate Result</button>
+            </form>
+
+            <div id="marksResult" style="display: none;">
+                <h4 class="text-center mb-3">Marks Card</h4>
+                <table class="table table-bordered">
+                    <thead class="table-success">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marksTableBody"></tbody>
+                    <tfoot class="table-success">
+                        <tr>
+                            <th>Total Marks</th>
+                            <th id="totalMarks"></th>
+                        </tr>
+                        <tr>
+                            <th>Average</th>
+                            <th id="average"></th>
+                        </tr>
+                        <tr>
+                            <th>Result</th>
+                            <th id="finalResult"></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

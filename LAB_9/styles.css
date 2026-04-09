@@ -1,0 +1,372 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Film grain texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ===== CONFETTI ===== */
+#confettiContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: -10px;
+    opacity: 0;
+    animation: confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        top: -10px;
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: rotate(1080deg);
+    }
+}
+
+/* ===== HEADER ===== */
+.party-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #d4af37;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.divider-line {
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin: 0 auto 15px;
+}
+
+.party-subtitle {
+    font-size: 1.1rem;
+    color: #e8e8e8;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+}
+
+/* ===== FILM COUNTDOWN CIRCLE ===== */
+.countdown-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.film-circle {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 0 8px #d4af37,
+        0 0 0 12px #0a0a0a,
+        0 0 60px rgba(212, 175, 55, 0.4),
+        inset 0 0 80px rgba(0, 0, 0, 0.8);
+}
+
+/* SVG Circle Segments */
+.circle-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+}
+
+.circle-svg.rotating {
+    animation: rotateCircle 60s linear infinite;
+}
+
+.circle-svg.pulse {
+    animation: rotateCircle 1s linear infinite;
+}
+
+@keyframes rotateCircle {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.segment-track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.05);
+    stroke-width: 2;
+}
+
+.segment-1,
+.segment-2,
+.segment-3,
+.segment-4 {
+    fill: none;
+    stroke: #d4af37;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 141.37;
+    stroke-dashoffset: 106;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+.segment-1 { transform: rotate(0deg); transform-origin: center; }
+.segment-2 { transform: rotate(90deg); transform-origin: center; }
+.segment-3 { transform: rotate(180deg); transform-origin: center; }
+.segment-4 { transform: rotate(270deg); transform-origin: center; }
+
+/* Center Content */
+.countdown-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 20;
+}
+
+.countdown-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    font-weight: 900;
+    color: #d4af37;
+    display: block;
+    line-height: 1;
+    text-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.8),
+        0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+.countdown-number.pulse {
+    animation: numberPulse 1s ease-in-out infinite;
+}
+
+@keyframes numberPulse {
+    0%, 100% { 
+        transform: scale(1);
+        text-shadow: 
+            0 0 20px rgba(212, 175, 55, 0.8),
+            0 0 40px rgba(212, 175, 55, 0.4);
+    }
+    50% { 
+        transform: scale(1.15);
+        text-shadow: 
+            0 0 30px rgba(212, 175, 55, 1),
+            0 0 60px rgba(212, 175, 55, 0.6);
+    }
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e8e8e8;
+    letter-spacing: 4px;
+    display: block;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* ===== BUTTONS - SIMPLE HOVER (NO SLIDING) ===== */
+.button-group {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.btn-party {
+    padding: 14px 40px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: 2px solid #d4af37;
+    background: transparent;
+    color: #d4af37;
+    border-radius: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+}
+
+.btn-party:hover:not(:disabled) {
+    background: #d4af37;
+    color: #0a0a0a;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.btn-party span {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-party:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* ===== STATUS MESSAGE ===== */
+.status-message {
+    font-size: 1rem;
+    color: #d4af37;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px 35px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+    font-family: 'Cinzel', serif;
+}
+
+/* ===== CELEBRATION OVERLAY ===== */
+.celebration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+.celebration-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.celebration-content {
+    text-align: center;
+    animation: celebrationAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes celebrationAppear {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.celebration-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 900;
+    color: #d4af37;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-shadow: 
+        0 0 40px rgba(212, 175, 55, 0.8),
+        0 0 80px rgba(212, 175, 55, 0.4);
+}
+
+.celebration-divider {
+    width: 300px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin: 0 auto 30px;
+}
+
+.celebration-subtext {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+}
+
+/* ===== FOOTER ===== */
+.footer-party {
+    text-align: center;
+    color: rgba(212, 175, 55, 0.6);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .party-title {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+
+    .film-circle {
+        width: 280px;
+        height: 280px;
+    }
+
+    .countdown-number {
+        font-size: 5rem;
+    }
+
+    .btn-party {
+        padding: 12px 30px;
+        font-size: 0.85rem;
+    }
+
+    .celebration-text {
+        font-size: 3.5rem;
+        letter-spacing: 6px;
+    }
+
+    .celebration-subtext {
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+    }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government School Admission Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Government School Admission Portal</h1>
+            <p class="subtitle">Kendriya Vidyalaya | Sainik School | Navodaya Vidyalaya</p>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-btn active" onclick="showSection('home')">Home</button>
+            <button class="tab-btn" onclick="showSection('personal')">Personal Information</button>
+            <button class="tab-btn" onclick="showSection('academic')">Academic Details</button>
+            <button class="tab-btn" onclick="showSection('parent')">Parent Details</button>
+        </nav>
+
+        <main class="form-container">
+            <!-- Home/Welcome Section -->
+            <div id="home" class="form-section active">
+                <h2>Welcome to Admission Portal</h2>
+                <div class="welcome-content">
+                    <p>This is the online admission portal for government schools including Kendriya Vidyalaya, Sainik School, and Navodaya Vidyalaya.</p>
+                    <p>Please fill out the following sections to complete your admission application:</p>
+                    <ul class="steps-list">
+                        <li><strong>Personal Information:</strong> Basic details about the student</li>
+                        <li><strong>Academic Details:</strong> Current school and academic performance</li>
+                        <li><strong>Parent Details:</strong> Parent/Guardian information and eligibility</li>
+                    </ul>
+                    <p class="note">All fields marked are mandatory. Please ensure all information is accurate.</p>
+                </div>
+                <div class="button-container">
+                    <button class="next-btn" onclick="showSectionByName('personal')">Start Application</button>
+                </div>
+            </div>
+
+            <!-- Personal Information Section -->
+            <div id="personal" class="form-section">
+                <h2>Personal Information</h2>
+                
+                <table class="form-table">
+                    <tr>
+                        <td><label for="studentName">Full Name:</label></td>
+                        <td><input type="text" id="studentName" placeholder="Enter full name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob">Date of Birth:</label></td>
+                        <td><input type="date" id="dob"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender:</label></td>
+                        <td>
+                            <input type="radio" name="gender" id="male" value="male">
+                            <label for="male">Male</label>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="female">Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="category">Category:</label></td>
+                        <td>
+                            <select id="category">
+                                <option value="">-- Select Category --</option>
+                                <option value="general">General</option>
+                                <option value="obc">OBC</option>
+                                <option value="sc">SC</option>
+                                <option value="st">ST</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="studentPhoto">Upload Photo:</label></td>
+                        <td><input type="file" id="studentPhoto" accept="image/*"></td>
+                    </tr>
+                </table>
+
+                <div class="button-container">
+                    <button class="next-btn" onclick="validateAndNext('personal', 'academic')">Continue to Academic Details</button>
+                </div>
+            </div>
+
+            <!-- Academic Details Section -->
+            <div id="academic" class="form-section">
+                <h2>Academic Details</h2>
+                
+                <table class="form-table">
+                    <tr>
+                        <td><label for="schoolName">Current School Name:</label></td>
+                        <td><input type="text" id="schoolName" placeholder="Enter school name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="classApplying">Class Applying For:</label></td>
+                        <td>
+                            <select id="classApplying">
+                                <option value="">-- Select Class --</option>
+                                <option value="6">Class VI</option>
+                                <option value="7">Class VII</option>
+                                <option value="8">Class VIII</option>
+                                <option value="9">Class IX</option>
+                                <option value="10">Class X</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="previousPercentage">Previous Year Percentage:</label></td>
+                        <td><input type="number" id="previousPercentage" min="0" max="100" placeholder="Enter percentage"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="marksheet">Upload Marksheet:</label></td>
+                        <td><input type="file" id="marksheet" accept="image/*,.pdf"></td>
+                    </tr>
+                </table>
+
+                <div class="button-container">
+                    <button class="prev-btn" onclick="showSectionByName('personal')">Previous</button>
+                    <button class="next-btn" onclick="validateAndNext('academic', 'parent')">Continue to Parent Details</button>
+                </div>
+            </div>
+
+            <!-- Parent Details Section -->
+            <div id="parent" class="form-section">
+                <h2>Parent & Eligibility Details</h2>
+                
+                <table class="form-table">
+                    <tr>
+                        <td><label for="parentName">Parent/Guardian Name:</label></td>
+                        <td><input type="text" id="parentName" placeholder="Enter parent name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="parentContact">Contact Number:</label></td>
+                        <td><input type="tel" id="parentContact" placeholder="Enter 10-digit mobile number"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Government Employee:</label></td>
+                        <td>
+                            <input type="checkbox" id="govEmployee">
+                            <label for="govEmployee">Parent is a government employee</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Ex-Serviceman:</label></td>
+                        <td>
+                            <input type="checkbox" id="exServiceman">
+                            <label for="exServiceman">Parent is an ex-serviceman</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Eligible for Service Quota:</label></td>
+                        <td>
+                            <input type="radio" name="serviceQuota" id="quotaYes" value="yes">
+                            <label for="quotaYes">Yes</label>
+                            <input type="radio" name="serviceQuota" id="quotaNo" value="no">
+                            <label for="quotaNo">No</label>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="button-container">
+                    <button class="prev-btn" onclick="showSectionByName('academic')">Previous</button>
+                    <button class="submit-btn" onclick="submitForm()">Submit Application</button>
+                </div>
+            </div>
+
+            <!-- Success Page -->
+            <div id="success" class="form-section">
+                <div class="success-container">
+                    <div class="success-icon">✓</div>
+                    <h2 class="success-title">Application Submitted Successfully!</h2>
+                    <p class="success-message">Thank you for submitting your admission application.</p>
+                    <p class="success-info">Your application has been received and is under review. You will be notified about the admission status via email/SMS.</p>
+                    <div class="button-container">
+                        <button class="next-btn" onclick="window.location.reload()">Submit New Application</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <span>Neekitasingh Rajput • 2441339</span>
+                <span>Web Technology [DSC302-4]</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Record - LAB 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Lab Assignment – 4</h1>
+<h3>Neekitasingh Rajput 2441339</h3>
+
+<hr>
+
+<div class="question">
+Design a webpage and demonstrate the following functionality.
+</div>
+
+<ul>
+    <li>Select / Unselect all items checkbox.</li>
+    <li>When one item is unchecked, select all should uncheck.</li>
+    <li>Add selected items to wishlist on button click.</li>
+    <li>Display selected items below in a table.</li>
+</ul>
+
+<h3>Implemented Code:</h3>
+
+<pre>
+HTML:
+Checkbox for Select All
+Checkbox list for Items
+Button: Add to Wishlist
+Table for wishlist
+
+CSS:
+Basic alignment and spacing
+
+JS Logic:
+Toggle select all
+Toggle individual checkboxes
+Collect selected items
+Display in wishlist table
+</pre>
+
+<h3>Execution:</h3>
+
+<div class="container">
+
+    <div class="header">
+        <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
+        <label>Select / Unselect All</label>
+    </div>
+
+    <div class="items">
+        <label><input type="checkbox" class="item" value="Item 1" onchange="checkMaster()"> Item 1</label>
+        <label><input type="checkbox" class="item" value="Item 2" onchange="checkMaster()"> Item 2</label>
+        <label><input type="checkbox" class="item" value="Item 3" onchange="checkMaster()"> Item 3</label>
+        <label><input type="checkbox" class="item" value="Item 4" onchange="checkMaster()"> Item 4</label>
+        <label><input type="checkbox" class="item" value="Item 5" onchange="checkMaster()"> Item 5</label>
+    </div>
+
+    <button onclick="addToWishlist()">Add to Wishlist</button>
+
+    <table id="wishlistTable">
+        <tr>
+            <th>Wishlist Items</th>
+        </tr>
+    </table>
+
+</div>
+
+<script src="script.js"></script>
+
+<hr>
+<p style="text-align:center;">
+    Neekitasingh Rajput – 2441339
+</p>
+
+</body>
+</html>

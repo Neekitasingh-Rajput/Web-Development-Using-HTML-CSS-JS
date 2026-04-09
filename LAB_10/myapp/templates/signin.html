@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - Django Lab 10{% endblock %}
+
+{% block content %}
+<h2 class="page-title">🔐 {{ title }}</h2>
+<p class="page-message">{{ message }}</p>
+
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="btn">Sign In</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 20px; color: #666;">
+        <a href="{% url 'home' %}" style="color: #667eea; text-decoration: none;">← Back to Home</a>
+    </p>
+</div>
+
+<div class="info-box">
+    <h3>Django URL Routing Demonstration</h3>
+    <p>This Sign In page is accessed using Django's URL dispatcher with the name 'signin'</p>
+    
+    <div class="code-box">
+        <strong>myapp/urls.py:</strong><br>
+        <code>path('signin/', views.signin, name='signin')</code>
+        <br><br>
+        <strong>Link from any template:</strong><br>
+        <code>&lt;a href="{% templatetag openblock %} url 'signin' {% templatetag closeblock %}"&gt;Sign In&lt;/a&gt;</code>
+    </div>
+    
+    <p style="margin-top: 15px;">
+        <strong>Benefits:</strong><br>
+        ✅ URLs are generated dynamically<br>
+        ✅ If URL pattern changes, links update automatically<br>
+        ✅ No hardcoded URLs in templates<br>
+        ✅ Clean and maintainable code
+    </p>
+</div>
+{% endblock %}

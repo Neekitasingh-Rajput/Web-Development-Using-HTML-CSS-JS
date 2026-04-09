@@ -1,0 +1,57 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration Page</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="christ_logo.png" class="logo">
+    <h1>Registration Form</h1>
+</header>
+
+<nav class="sidebar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="register.html" class="active">Registration</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+</nav>
+
+<main>
+<h2>Student Registration</h2>
+<form>
+<table class="formtable" border="1">
+<tr><td>First Name</td><td><input type="text" required></td></tr>
+<tr><td>Last Name</td><td><input type="text" required></td></tr>
+<tr><td>Gender</td><td>
+<select required>
+<option value="">Select</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</td></tr>
+<tr><td>Address</td><td><textarea rows="3" required></textarea></td></tr>
+<tr><td>Phone Number</td><td><input type="tel" pattern="[0-9]{10}" required></td></tr>
+<tr><td>Date of Birth</td><td><input type="date" required></td></tr>
+<tr><td>Email Address</td><td><input type="email" required></td></tr>
+<tr><td>Alternate Phone</td><td><input type="tel" pattern="[0-9]{10}"></td></tr>
+<tr><td>Alternate Email</td><td><input type="email"></td></tr>
+<tr><td>Qualification</td><td><input type="text" required></td></tr>
+<tr><td>Work Experience</td><td><input type="text"></td></tr>
+<tr><td colspan="2" style="text-align:center;"><button type="submit" class="btn">Submit</button></td></tr>
+</table>
+</form>
+<p style="text-align:center; margin-top:20px;"><a class="btn" href="index.html">Back to Home</a></p>
+</main>
+
+<footer>
+<p>© 2025 2441339_LAB 1 Demo Semantic Website</p>
+</footer>
+
+</body>
+</html>

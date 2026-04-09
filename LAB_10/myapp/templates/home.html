@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - Django Lab 10{% endblock %}
+
+{% block content %}
+<h2 class="page-title">🏠 {{ title }}</h2>
+<p class="page-message">{{ message }}</p>
+
+<div class="info-box">
+    <h3>What is Django URL Dispatcher?</h3>
+    <p>Django's URL dispatcher allows you to design clean, elegant URLs for your web application. It maps URL patterns to view functions.</p>
+</div>
+
+<div class="info-box">
+    <h3>How <code>{% templatetag openblock %} url {% templatetag closeblock %}</code> Tag Works</h3>
+    <p>
+        The 
+        <code>{% templatetag openblock %} url {% templatetag closeblock %}</code>
+        template tag generates URLs dynamically using the name you assigned in urls.py.
+    </p>
+
+    <div class="code-box">  
+        <strong>urls.py:</strong><br>
+        <code>path('signin/', views.signin, name='signin')</code>
+        <br><br>
+        <strong>Template:</strong><br> 
+        <code>&lt;a href="{% templatetag openblock %} url 'signin' {% templatetag closeblock %}"&gt;Sign In&lt;/a&gt;</code>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+    <p style="font-size: 1.2rem; margin-bottom: 20px;">Ready to sign in?</p>
+    <a href="{% url 'signin' %}" class="btn" style="max-width: 300px; display: inline-block; text-decoration: none;">
+        Go to Sign In Page
+    </a>
+</div>
+{% endblock %}

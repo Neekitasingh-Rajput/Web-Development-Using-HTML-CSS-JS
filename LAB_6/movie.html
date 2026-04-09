@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking - Lab 6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="movie-page">
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Movie Ticket Booking</h2>
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+
+            <div id="contextMessage" class="alert alert-warning" style="display: none;"></div>
+
+            <form id="movieForm" onsubmit="submitMovieForm(event)">
+                <div class="mb-3">
+                    <label for="customerName" class="form-label">Full Name:</label>
+                    <input type="text" class="form-control" id="customerName" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address (Optional):</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="movieSelect" class="form-label">Select Movie:</label>
+                    <input type="text" class="form-control" id="movieSelect" placeholder="Click to select a movie" readonly required onclick="toggleMovieGallery()">
+                    <input type="hidden" id="selectedMovie">
+                </div>
+
+                <!-- Movie Poster Gallery -->
+                <div id="movieGallery" class="movie-gallery mb-4" style="display: none;">
+                    <div class="row g-3">
+                        <div class="col-md-3 col-6">
+                            <div class="movie-poster-card" onclick="selectMovie('Interstellar', 'interstellar.jpg')" 
+                                 onmouseover="handlePosterMouseover(this)" 
+                                 onmouseout="handlePosterMouseout(this)">
+                                <img src="interstellar.jpg" alt="Interstellar" class="movie-poster-img">
+                                <p class="movie-title">Interstellar</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="movie-poster-card" onclick="selectMovie('Inception', 'inception.jpg')"
+                                 onmouseover="handlePosterMouseover(this)" 
+                                 onmouseout="handlePosterMouseout(this)">
+                                <img src="inception.jpg" alt="Inception" class="movie-poster-img">
+                                <p class="movie-title">Inception</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="movie-poster-card" onclick="selectMovie('Apollo 13', 'apollo13.jpg')"
+                                 onmouseover="handlePosterMouseover(this)" 
+                                 onmouseout="handlePosterMouseout(this)">
+                                <img src="apollo13.jpg" alt="Apollo 13" class="movie-poster-img">
+                                <p class="movie-title">Apollo 13</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="movie-poster-card" onclick="selectMovie('Shutter Island', 'shutterisland.jpg')"
+                                 onmouseover="handlePosterMouseover(this)" 
+                                 onmouseout="handlePosterMouseout(this)">
+                                <img src="shutterisland.jpg" alt="Shutter Island" class="movie-poster-img">
+                                <p class="movie-title">Shutter Island</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="numTickets" class="form-label">Number of Tickets:</label>
+                    <input type="number" class="form-control" id="numTickets" min="1" max="10" value="1" required
+                           onchange="updateTicketPrice()">
+                </div>
+
+                <div class="mb-3">
+                    <label for="seatType" class="form-label">Seat Type:</label>
+                    <select class="form-select" id="seatType" required onchange="updateTicketPrice()">
+                        <option value="200">Regular - ₹200</option>
+                        <option value="350">Premium - ₹350</option>
+                        <option value="500">VIP - ₹500</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="showTime" class="form-label">Show Time:</label>
+                    <select class="form-select" id="showTime" required>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="01:00 PM">01:00 PM</option>
+                        <option value="04:00 PM">04:00 PM</option>
+                        <option value="07:00 PM">07:00 PM</option>
+                        <option value="10:00 PM">10:00 PM</option>
+                    </select>
+                </div>
+
+                <div class="alert alert-success text-center mb-3">
+                    <h5>Total Price: ₹<span id="totalPrice">200</span></h5>
+                </div>
+
+                <button type="submit" class="btn btn-purple w-100" onclick="handleButtonClick()">
+                    Book Tickets
+                </button>
+            </form>
+
+            <div id="bookingConfirmation" class="mt-4" style="display: none;">
+                <div class="alert alert-success">
+                    <h4>Booking Confirmed! 🎉</h4>
+                    <div id="confirmationDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

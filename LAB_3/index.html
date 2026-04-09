@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Record - LAB 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 30px;
+        }
+        h2 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid #555;
+            overflow-x: auto;
+        }
+        .question {
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .execution {
+            margin-top: 10px;
+        }
+        hr {
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lab Assignment – 3</h1>
+<h3>Neekitasingh Rajput – 2441339</h3>
+
+<!-- ================= Q1 ================= -->
+<div class="question">
+Q1. Create a variable called z, assign x + y to it, and display the result in an alert box.
+</div>
+
+<h3>Implemented Code:</h3>
+<pre>
+let x = 10;
+let y = 20;
+let z = x + y;
+alert(z);
+</pre>
+
+<h3>Execution:</h3>
+<div class="execution">
+    <button onclick="addAndAlert()">Click to Execute</button>
+</div>
+
+<hr>
+
+<!-- ================= Q2 ================= -->
+<div class="question">
+Q2. Declare three variables with the following names and values:
+firstName = "Christ",
+lastName = "University",
+pinCode = 560029
+</div>
+
+<h3>Implemented Code:</h3>
+<pre>
+let firstName = "Christ";
+let lastName = "University";
+let pinCode = 560029;
+</pre>
+
+<h3>Execution:</h3>
+<div class="execution">
+    Variables are declared successfully.
+</div>
+
+<hr>
+
+<!-- ================= Q3 ================= -->
+<div class="question">
+Q3. Write a JavaScript program to swap two numbers.
+</div>
+
+<h3>Implemented Code:</h3>
+<pre>
+let temp = a;
+a = b;
+b = temp;
+</pre>
+
+<h3>Execution:</h3>
+<div class="execution">
+    <input type="number" id="num1" placeholder="First number">
+    <input type="number" id="num2" placeholder="Second number">
+    <br><br>
+    <button onclick="swapNumbers()">Swap</button>
+    <p id="swapResult"></p>
+</div>
+
+<hr>
+
+<!-- ================= Q4 ================= -->
+<div class="question">
+Q4. Write a JavaScript program to find the factorial of a number.
+</div>
+
+<h3>Implemented Code:</h3>
+<pre>
+let fact = 1;
+for(let i = 1; i <= n; i++) {
+    fact = fact * i;
+}
+</pre>
+
+<h3>Execution:</h3>
+<div class="execution">
+    <input type="number" id="factNum" placeholder="Enter number">
+    <br><br>
+    <button onclick="calculateFactorial()">Find Factorial</button>
+    <p id="factorialResult"></p>
+</div>
+
+<hr>
+
+<!-- ================= Q5 ================= -->
+<div class="question">
+Q5. Write a JavaScript program to display the current day and time.
+</div>
+
+<h3>Implemented Code:</h3>
+<pre>
+const days = ["Sunday","Monday","Tuesday","Wednesday",
+              "Thursday","Friday","Saturday"];
+let today = days[new Date().getDay()];
+</pre>
+
+<h3>Execution:</h3>
+<div class="execution">
+    <button onclick="showDateTime()">Show Date & Time</button>
+    <p id="dateTimeResult"></p>
+</div>
+
+<script src="script.js"></script>
+
+<hr>
+<p style="text-align:center;">
+    Neekitasingh Rajput – 2441339
+</p>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Countdown - Lab 9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Confetti Container -->
+    <div id="confettiContainer"></div>
+
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100">
+        
+        <!-- Header -->
+        <header class="text-center mb-4">
+            <h1 class="party-title">🎊 PARTY COUNTDOWN 🎊</h1>
+            <div class="divider-line"></div>
+            <p class="party-subtitle">Get Ready To Celebrate</p>
+        </header>
+
+        <!-- Film Countdown Circle -->
+        <div class="countdown-wrapper mb-5">
+            <div class="film-circle" id="filmCircle">
+                <!-- Rotating segments -->
+                <svg class="circle-svg rotating" viewBox="0 0 200 200" id="rotatingSVG">
+                    <circle cx="100" cy="100" r="90" class="segment-track"></circle>
+                    <circle cx="100" cy="100" r="90" class="segment-1" id="segment1"></circle>
+                    <circle cx="100" cy="100" r="90" class="segment-2" id="segment2"></circle>
+                    <circle cx="100" cy="100" r="90" class="segment-3" id="segment3"></circle>
+                    <circle cx="100" cy="100" r="90" class="segment-4" id="segment4"></circle>
+                </svg>
+                
+                <!-- Center number -->
+                <div class="countdown-center">
+                    <span class="countdown-number" id="timerNumber">10</span>
+                    <span class="countdown-label">SECONDS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="button-group mb-4">
+            <button id="startBtn" class="btn-party btn-start">
+                <span>START PARTY</span>
+            </button>
+            <button id="pauseBtn" class="btn-party btn-pause" disabled>
+                <span>PAUSE</span>
+            </button>
+            <button id="resumeBtn" class="btn-party btn-resume" disabled>
+                <span>RESUME</span>
+            </button>
+        </div>
+
+        <!-- Status Message -->
+        <div class="status-message" id="statusMessage">
+            Click START PARTY to begin!
+        </div>
+
+        <!-- Celebration Overlay -->
+        <div id="celebrationMessage" class="celebration-overlay">
+            <div class="celebration-content">
+                <h2 class="celebration-text">🎉 LET'S PARTY! 🎉</h2>
+                <div class="celebration-divider"></div>
+                <p class="celebration-subtext">Time To Celebrate!</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-party mt-5">
+            <p class="mb-0">Neekitasingh Rajput • 2441339 • Lab 9 - Event Listeners</p>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

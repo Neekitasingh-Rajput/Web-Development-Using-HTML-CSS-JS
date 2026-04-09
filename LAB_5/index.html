@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Record- Lab 5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1 class="lab-title">Lab Assignment – 5</h1>
+<h2>Employee Experience Details</h2>
+
+<table id="empTable">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Designation</th>
+            <th>Joining Date</th>
+            <th>End Date</th>
+            <th>Skills</th>
+            <th>Job Type</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td><input type="text" placeholder="Enter company"> </td>
+            <td><input type="text" placeholder="Enter designation"></td>
+            <td><input type="date"></td>
+            <td><input type="date"></td>
+            <td>
+                <select>
+                    <option value="">Select Skills</option>
+                    <option>Java</option>
+                    <option>Python</option>
+                    <option>Web Development</option>
+                    <option>Data Science</option>
+                </select>
+            </td>
+            <td>
+                <input type="radio" name="job0"> Full Time
+                <input type="radio" name="job0"> Part Time
+            </td>
+            <td>
+                <span class="delete" onclick="deleteRow(this)">X</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button onclick="addRow()">Add More</button>
+<button onclick="submitForm()">Submit</button>
+
+<script src="script.js"></script>
+</body>
+
+<footer>
+    Neekitasingh Rajput 2441339
+</footer>
+
+</html>

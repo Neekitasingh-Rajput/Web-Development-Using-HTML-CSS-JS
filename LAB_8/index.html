@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cucina Italiana - Lab 8</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container py-4 main-wrapper">
+        <header class="header text-center mb-4">
+            <h1 class="main-title">La Cucina Italiana</h1>
+            <p class="subtitle">Authentic Italian Delicacies</p>
+            <div class="italian-flag">
+                <span class="flag-green"></span>
+                <span class="flag-white"></span>
+                <span class="flag-red"></span>
+            </div>
+        </header>
+
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-7">
+                <div class="image-viewer">
+                    <div class="main-image-container">
+                        <img id="mainImage" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&h=500&fit=crop" alt="Italian Cuisine">
+                    </div>
+                    <div id="imageTitle" class="image-title">Spaghetti Carbonara</div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="gallery-container">
+                    <h5 class="gallery-heading text-center mb-4">Our Signature Dishes</h5>
+                    <div class="thumbnail-gallery">
+                        
+                        <div class="thumbnail-wrapper">
+                            <img class="thumbnail" 
+                                 src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=150&h=150&fit=crop" 
+                                 data-full="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&h=500&fit=crop"
+                                 data-title="Spaghetti Carbonara"
+                                 data-description="Authentic Roman pasta with guanciale, pecorino & black pepper"
+                                 alt="Carbonara">
+                        </div>
+
+                        <div class="thumbnail-wrapper">
+                            <img class="thumbnail" 
+                                 src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=150&h=150&fit=crop" 
+                                 data-full="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&h=500&fit=crop"
+                                 data-title="Pizza Margherita"
+                                 data-description="Neapolitan classic with San Marzano tomatoes & buffalo mozzarella"
+                                 alt="Margherita Pizza">
+                        </div>
+
+                        <div class="thumbnail-wrapper">
+                            <img class="thumbnail" 
+                                 src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=150&h=150&fit=crop" 
+                                 data-full="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&h=500&fit=crop"
+                                 data-title="Tiramisù"
+                                 data-description="Layered espresso-soaked ladyfingers with mascarpone cream"
+                                 alt="Tiramisu">
+                        </div>
+
+                        <div class="thumbnail-wrapper">
+                            <img class="thumbnail" 
+                                 src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=150&h=150&fit=crop" 
+                                 data-full="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=800&h=500&fit=crop"
+                                 data-title="Risotto ai Funghi"
+                                 data-description="Creamy Arborio rice with porcini mushrooms & Parmigiano"
+                                 alt="Mushroom Risotto">
+                        </div>
+
+                        <div class="thumbnail-wrapper">
+                            <img class="thumbnail" 
+                                 src="https://images.unsplash.com/photo-1595295333158-4742f28fbd85?w=150&h=150&fit=crop" 
+                                 data-full="https://images.unsplash.com/photo-1595295333158-4742f28fbd85?w=800&h=500&fit=crop"
+                                 data-title="Osso Buco"
+                                 data-description="Milanese braised veal shanks with saffron risotto"
+                                 alt="Osso Buco">
+                        </div>
+
+                        <div class="thumbnail-wrapper">
+                            <img class="thumbnail" 
+                                 src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=150&h=150&fit=crop" 
+                                 data-full="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=500&fit=crop"
+                                 data-title="Panna Cotta"
+                                 data-description="Silky vanilla custard with berry compote"
+                                 alt="Panna Cotta">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer text-center mt-5">
+            <p class="mb-0">Neekitasingh Rajput • 2441339 • Lab 8 - JavaScript Event Listeners</p>
+        </footer>
+
+        <div id="customTooltip" class="custom-tooltip">
+            <div class="tooltip-title"></div>
+            <div class="tooltip-description"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
